@@ -7,6 +7,8 @@ Reusable skills for AI coding agents — Claude Code, Cursor, Codex, GitHub Copi
 | Skill | What it does | Install |
 | --- | --- | --- |
 | [`/iq`](skills/iq) | Daily interview-prep quiz tailored to your own stack and shipped projects — spaced repetition, project-grounded questions, saved to your notes. | `npx skills add mdaneshjoo/skills --skill iq` |
+| [`/explain-plan`](skills/explain-plan) | Walks an implementation plan section by section, pausing for agreement on each — instead of dumping the whole plan or going straight to code. | `npx skills add mdaneshjoo/skills --skill explain-plan` |
+| [`/explain-investigation`](skills/explain-investigation) | Walks a debugging report one finding at a time, keeping evidence, meaning, impact and confidence separate — and never guessing from memory. | `npx skills add mdaneshjoo/skills --skill explain-investigation` |
 
 Each skill documents itself — see its folder for setup and usage.
 

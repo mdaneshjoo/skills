@@ -1,0 +1,4 @@
+interface:
+  display_name: "Explain Plan"
+  short_description: "Walk through implementation plans step by step"
+  default_prompt: "Use $explain-plan to walk me through the plan section by section before implementation."
