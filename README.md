@@ -2,17 +2,25 @@
 
 Reusable skills for AI coding agents — Claude Code, Cursor, Codex, GitHub Copilot, Windsurf, Gemini, Cline, and others.
 
-```bash
-npx skills add mdaneshjoo/skills
-```
-
 ## Skills
 
-| Skill | What it does |
-| --- | --- |
-| [`/iq`](skills/iq) | Daily interview-prep quiz tailored to your own stack and shipped projects — spaced repetition, project-grounded questions, saved to your notes. |
+| Skill | What it does | Install |
+| --- | --- | --- |
+| [`/iq`](skills/iq) | Daily interview-prep quiz tailored to your own stack and shipped projects — spaced repetition, project-grounded questions, saved to your notes. | `npx skills add mdaneshjoo/skills --skill iq` |
 
 Each skill documents itself — see its folder for setup and usage.
+
+## Installing
+
+Pick just what you want; you don't have to take the whole repo.
+
+```bash
+npx skills add mdaneshjoo/skills --skill iq     # one skill
+npx skills add mdaneshjoo/skills --list         # browse and choose interactively
+npx skills add mdaneshjoo/skills --skill '*'    # all of them
+```
+
+`--skill` accepts several at once: `--skill iq --skill other`.
 
 ## Adding a skill
 

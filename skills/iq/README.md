@@ -3,8 +3,10 @@
 A daily interview quiz **tailored to your own stack and the projects you actually shipped** — not generic trivia.
 
 ```bash
-npx skills add mdaneshjoo/skills
+npx skills add mdaneshjoo/skills --skill iq
 ```
+
+Installs only this skill — nothing else from the repo comes with it.
 
 ---
 
