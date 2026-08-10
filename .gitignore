@@ -1,0 +1,7 @@
+# Machine-local skill configs — contain absolute paths and personal data
+iq-config.md
+**/iq-config.md
+config.json
+
+.DS_Store
+node_modules/
