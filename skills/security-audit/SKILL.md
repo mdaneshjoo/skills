@@ -34,6 +34,7 @@ The master checklist is [`checklist.md`](checklist.md) next to this file.
 |---|---|
 | Code | Read the code; search for the pattern (`enableCors`, `helmet`, `sql.raw`, `Math.random`, `dangerouslySetInnerHTML`, `localStorage.setItem`, `...body`). Cite `path:line` |
 | Live (§0, §6, §7, §9, §12) | `curl -sI` for headers and cookies; preflight with a foreign `Origin`; unauthenticated data route; a few wrong logins to see if `429` comes |
+| Sessions & push (§1, §12) | Log in on two devices; change the password on one → the other gets `401` and **no more pushes**; log out → a test push to that user reaches no device |
 | Ownership (§2, §14) | Two test accounts: B tries A's ids on every `:id` route. Prefer adding these as e2e tests |
 | Dependencies (§15) | `pnpm audit` / `npm audit` / stack equivalent; paste counts by severity |
 | Secrets (§5) | `gitleaks detect` (history too) or a grep for key patterns; list env var **names** only |

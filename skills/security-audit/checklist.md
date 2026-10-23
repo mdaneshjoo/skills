@@ -123,6 +123,7 @@ Examples name common stacks (NestJS, Express, Next.js, TypeORM, Drizzle, Prisma)
 
 - [ ] Cookie flags: `HttpOnly`, `Secure` (prod), `SameSite`, path / domain scoped, expiry set. Check the live `Set-Cookie`, not only the code
 - [ ] Sessions end on password change, role change, account deletion
+- [ ] **Push / device tokens follow the session, server-side:** each push subscription (Web Push, FCM, APNs token) is stored with the session that registered it. Logout, password change (other sessions), session expiry and account deletion stop notifications on the server — never rely only on the app unsubscribing (it can be offline, crash, or be uninstalled). Test it: log out, then send a test push; nothing should arrive
 - [ ] Users can see and end their other sessions (when the app has multiple devices)
 
 ## 13. Data protection and privacy
@@ -197,7 +198,7 @@ Method from a real audit: list sensitive fields once, then check every module's 
 - [ ] Source maps not public in production (or no secrets in them)
 - [ ] Third-party scripts minimized; Subresource Integrity on CDN scripts
 - [ ] Service worker never caches authenticated API responses for other users; cache cleared on logout
-- [ ] Logout clears client state (SWR / React Query caches, IndexedDB, push subscription for that user)
+- [ ] Logout clears client state (SWR / React Query caches, IndexedDB) and unsubscribes push on the device (on top of the server-side rule in §12)
 - [ ] Push / notification payloads carry no sensitive data beyond what the lock screen may show
 - [ ] Open redirects blocked (`?next=` / `?url=` only to own paths)
 - [ ] Links with `target="_blank"` use `rel="noopener noreferrer"`
