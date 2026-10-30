@@ -31,6 +31,7 @@ Examples name common stacks (NestJS, Express, Next.js, TypeORM, Drizzle, Prisma)
 - [ ] Logout ends the session server-side (not only clears the cookie)
 - [ ] Password change / reset ends other sessions (session version, `passwordChangedAt`, or token family)
 - [ ] OTP / magic links: single use, short expiry (≤ 5 min for OTP), hashed at rest, rate-limited per phone/email and per IP
+- [ ] OTP guess budget: wrong codes one phone can try in a year ÷ possible codes stays small (< 1%). A per-day lock that resets daily is not enough (30/day × 365 vs 5 digits ≈ 11%); use 6+ digits or a lockout that grows across days
 - [ ] MFA available for admin and sensitive accounts
 - [ ] Verification of phone/email before actions that need it
 
@@ -100,7 +101,7 @@ Examples name common stacks (NestJS, Express, Next.js, TypeORM, Drizzle, Prisma)
 - [ ] Request body size limit (e.g. 1 MB)
 - [ ] Expensive endpoints (exports, AI calls, uploads, reports) have their own limits or quotas
 - [ ] CAPTCHA or proof-of-work where bots are a real risk (sign-up, contact forms)
-- [ ] Limits work behind the proxy (trust the right `X-Forwarded-For` hop, not any client header)
+- [ ] Limits work behind the proxy (trust the right `X-Forwarded-For` hop, not any client header), **checked live**: the IP the server sees for a real request is the client's, not the proxy's
 
 ## 10. Logging, monitoring, alerting
 
@@ -237,6 +238,8 @@ Method from a real audit: list sensitive fields once, then check every module's 
 - [ ] Reset / verify links: single use, expiring, ≥ 128-bit tokens, hashed at rest
 - [ ] No secrets or full card numbers in messages; templates escape user values
 - [ ] SMS / OTP sending rate-limited (cost and abuse)
+- [ ] Daily cap of codes / messages per phone or email, not only hourly, so one person can't be flooded (SMS bombing) from many IPs
+- [ ] Global daily SMS cap with an alert, and premium-rate / unexpected country prefixes blocked (SMS pumping, toll fraud)
 
 ## 27. Cache
 
